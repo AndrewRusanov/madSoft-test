@@ -3,20 +3,22 @@ import { ChangeEvent, FC } from "react";
 type Props = {
   option: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
-  type: string;
+  type: "checkbox" | "radio";
   selectedOptions: string[];
 };
 
 const AnswerOption: FC<Props> = ({
   option,
   type,
-  selectedOptions,
+  selectedOptions = [],
   handleChange,
 }) => {
+  
   return (
     <div>
       <input
         type={type}
+        value={option}
         checked={selectedOptions.includes(option)}
         onChange={handleChange}
       />

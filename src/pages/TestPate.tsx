@@ -28,12 +28,13 @@ const TestPage: FC = () => {
   const handleChange = (
     event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
   ) => {
-    const { type, value, checked } = event.target;
+    const { type, value } = event.target;
     const currentQuestionId = QUESTIONS[progress].id;
     let updatedAnswer;
 
     if (type === "checkbox") {
-      const currentAnswers = answers[currentQuestionId] as string[] | [];
+      const { checked } = event.target as HTMLInputElement;
+      const currentAnswers = (answers[currentQuestionId] as string[]) || [];
       updatedAnswer = checked
         ? [...currentAnswers, value]
         : currentAnswers.filter((option) => option !== value);
@@ -52,7 +53,7 @@ const TestPage: FC = () => {
       <StepForm
         step={progress}
         question={QUESTIONS[progress]}
-        answer={answers[QUESTIONS[progress].id]}
+        answer={answers[QUESTIONS[progress].id] || ""}
         handleNext={handleNext}
         handlePrev={handlePrev}
         handleChange={handleChange}

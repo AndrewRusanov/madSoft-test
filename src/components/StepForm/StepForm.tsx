@@ -72,7 +72,7 @@ const StepForm: FC<Props> = ({
       </button>
       <button
         type="button"
-        disabled={step === QUESTIONS.length}
+        disabled={step === QUESTIONS.length-1}
         onClick={handleNext}
       >
         Вперёд
