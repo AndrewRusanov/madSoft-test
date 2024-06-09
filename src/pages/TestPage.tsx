@@ -6,6 +6,7 @@ import { QUESTIONS } from "../data/Questions";
 import { setAnswer, setProgress } from "../store/slice";
 
 import styles from "./TestPage.module.css";
+import ProgressBar from "../components/ProgressBar";
 
 const TestPage: FC = () => {
   const dispatch = useAppDispatch();
@@ -55,6 +56,7 @@ const TestPage: FC = () => {
         <h1 className={styles.title}>Тестирование</h1>
         <Timer initialTime={3600} onTimeUp={handleTimeUp} />
       </header>
+      <ProgressBar currentStep={progress} totalQuestions={QUESTIONS.length} />
       <StepForm
         step={progress}
         question={QUESTIONS[progress]}

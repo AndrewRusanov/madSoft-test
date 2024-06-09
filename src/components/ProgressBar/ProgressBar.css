@@ -1,0 +1,20 @@
+.progressBar {
+  display: flex;
+  height: 20px;
+  width: 100%;
+  gap: 5px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.segment {
+  flex: 1;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.segment.completed {
+  background-color: cornflowerblue;
+}
