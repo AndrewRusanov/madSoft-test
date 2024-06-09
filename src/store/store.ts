@@ -2,9 +2,9 @@ import { configureStore } from "@reduxjs/toolkit";
 import testReducer from "./slice";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 
-const store = configureStore({
+export const store = configureStore({
   reducer: {
-    questions: testReducer,
+    test: testReducer,
   },
 });
 

@@ -10,9 +10,21 @@ type Props = {
   step: number;
   question: Question;
   answer: string | string[];
+  handleNext: () => void;
+  handlePrev: () => void;
+  handleChange: (
+    event: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => void;
 };
 
-const StepForm: FC<Props> = ({ step, question, answer }) => {
+const StepForm: FC<Props> = ({
+  step,
+  question,
+  answer,
+  handlePrev,
+  handleNext,
+  handleChange,
+}) => {
   const renderQuestions = () => {
     switch (question.type) {
       case QuestionTypes.SINGLE_SELECT:
@@ -55,10 +67,14 @@ const StepForm: FC<Props> = ({ step, question, answer }) => {
   return (
     <div>
       {renderQuestions()}
-      <button type="button" disabled={step === 0}>
+      <button type="button" disabled={step === 0} onClick={handlePrev}>
         Назад
       </button>
-      <button type="button" disabled={step === QUESTIONS.length}>
+      <button
+        type="button"
+        disabled={step === QUESTIONS.length}
+        onClick={handleNext}
+      >
         Вперёд
       </button>
     </div>

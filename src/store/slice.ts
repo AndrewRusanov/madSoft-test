@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type State = {
   progress: number;
@@ -14,10 +14,13 @@ const testSlice = createSlice({
   name: "test",
   initialState,
   reducers: {
-    setProgress: (state, action) => {
+    setProgress: (state, action: PayloadAction<number>) => {
       state.progress = action.payload;
     },
-    setAnswer: (state, action) => {
+    setAnswer: (
+      state,
+      action: PayloadAction<{ questionId: number; answer: string | string[] }>
+    ) => {
       state.answers[action.payload.questionId] = action.payload.answer;
     },
   },
