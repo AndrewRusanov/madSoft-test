@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from "react";
+import { getFormatedTime } from "../../utils/getFormatedTime";
 
 type Props = {
   initialTime: number;
@@ -17,7 +18,7 @@ const Timer: FC<Props> = ({ initialTime, onTimeUp }) => {
     }
   }, [time, onTimeUp]);
 
-  return <div>Осталось времени: {time}</div>;
+  return <div>Осталось времени: {getFormatedTime(time)}</div>;
 };
 
 export default Timer;
