@@ -64,3 +64,5 @@ const StepForm: FC<Props> = ({ step, question, answer }) => {
     </div>
   );
 };
+
+export default StepForm;
