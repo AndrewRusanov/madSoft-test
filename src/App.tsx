@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import "./App.css";
 import TestPage from "./pages";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { setAnswer, setProgress } from "./store/slice";

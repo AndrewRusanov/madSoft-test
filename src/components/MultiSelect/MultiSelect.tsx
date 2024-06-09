@@ -2,6 +2,8 @@ import { ChangeEvent, FC } from "react";
 import { Question } from "../../types/questions";
 import AnswerOption from "../AnswerOption";
 
+import styles from "./MultiSelect.module.css";
+
 type Props = {
   question: Question;
   selectedOptions: string[];
@@ -14,8 +16,8 @@ const MultiSelect: FC<Props> = ({
   handleChange,
 }) => {
   return (
-    <div>
-      <h3>{question.text}</h3>
+    <div className={styles.container}>
+      <h3 className={styles.question}>{question.text}</h3>
       {question.options?.map((option, index) => (
         <AnswerOption
           key={index}

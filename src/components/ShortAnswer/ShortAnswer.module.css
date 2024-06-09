@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.question {
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 600;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.input {
+  padding: 5px 10px;
+  width: 50%;
+  outline: none;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.input:focus {
+  outline: none;
+  border: 1px solid cornflowerblue;
+  border-radius: 5px;
+}

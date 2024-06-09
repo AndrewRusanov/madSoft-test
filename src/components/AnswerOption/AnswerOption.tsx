@@ -1,5 +1,7 @@
 import { ChangeEvent, FC } from "react";
 
+import styles from "./AnswerOption.module.css";
+
 type Props = {
   option: string;
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
@@ -13,16 +15,17 @@ const AnswerOption: FC<Props> = ({
   selectedOptions = [],
   handleChange,
 }) => {
-  
   return (
-    <div>
+    <div className={styles.container}>
       <input
+        name={option}
+        className={styles.input}
         type={type}
         value={option}
         checked={selectedOptions.includes(option)}
         onChange={handleChange}
       />
-      {option}
+      <label htmlFor={option}>{option}</label>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { ChangeEvent, FC } from "react";
 import { Question } from "../../types/questions";
+import styles from "./LongAnswers.module.css";
 
 type Props = {
   question: Question;
@@ -9,9 +10,14 @@ type Props = {
 
 const LongAnswer: FC<Props> = ({ question, answer, handleChange }) => {
   return (
-    <div>
-      <h3>{question.text}</h3>
-      <textarea value={answer} onChange={handleChange} />
+    <div className={styles.container}>
+      <h3 className={styles.question}>{question.text}</h3>
+      <textarea
+        placeholder="Напишите развёрнутый ответ"
+        className={styles.inputArea}
+        value={answer}
+        onChange={handleChange}
+      />
     </div>
   );
 };

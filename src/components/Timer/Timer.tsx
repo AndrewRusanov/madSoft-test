@@ -18,7 +18,7 @@ const Timer: FC<Props> = ({ initialTime, onTimeUp }) => {
     }
   }, [time, onTimeUp]);
 
-  return <div>Осталось времени: {getFormatedTime(time)}</div>;
+  return <div>{getFormatedTime(time)}</div>;
 };
 
 export default Timer;

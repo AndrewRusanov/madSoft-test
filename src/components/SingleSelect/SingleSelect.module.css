@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+}
+
+.question {
+  font-size: 20px;
+  line-height: normal;
+  font-weight: 600;
+  padding: 0;
+  margin: 10px 0;
+}

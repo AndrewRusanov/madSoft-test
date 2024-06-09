@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../store/store";
 import { QUESTIONS } from "../data/Questions";
 import { setAnswer, setProgress } from "../store/slice";
 
+import styles from "./TestPage.module.css";
+
 const TestPage: FC = () => {
   const dispatch = useAppDispatch();
   const { answers, progress } = useAppSelector((state) => state.test);
@@ -48,8 +50,11 @@ const TestPage: FC = () => {
   };
 
   return (
-    <section>
-      <Timer initialTime={3600} onTimeUp={handleTimeUp} />
+    <section className={styles.page}>
+      <header className={styles.header}>
+        <h1 className={styles.title}>Тестирование</h1>
+        <Timer initialTime={3600} onTimeUp={handleTimeUp} />
+      </header>
       <StepForm
         step={progress}
         question={QUESTIONS[progress]}

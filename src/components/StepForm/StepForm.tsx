@@ -6,6 +6,8 @@ import ShortAnswer from "../ShortAnswer";
 import LongAnswer from "../LongAnswer";
 import { QUESTIONS } from "../../data/Questions";
 
+import styles from "./StepForm.module.css";
+
 type Props = {
   step: number;
   question: Question;
@@ -65,19 +67,27 @@ const StepForm: FC<Props> = ({
     }
   };
   return (
-    <div>
+    <section className={styles.container}>
       {renderQuestions()}
-      <button type="button" disabled={step === 0} onClick={handlePrev}>
-        Назад
-      </button>
-      <button
-        type="button"
-        disabled={step === QUESTIONS.length-1}
-        onClick={handleNext}
-      >
-        Вперёд
-      </button>
-    </div>
+      <div className={styles.navigation}>
+        <button
+          type="button"
+          className={styles.button}
+          disabled={step === 0}
+          onClick={handlePrev}
+        >
+          Назад
+        </button>
+        <button
+          type="button"
+          className={styles.button}
+          disabled={step === QUESTIONS.length - 1}
+          onClick={handleNext}
+        >
+          Вперёд
+        </button>
+      </div>
+    </section>
   );
 };
 

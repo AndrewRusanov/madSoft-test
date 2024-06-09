@@ -1,3 +1,3 @@
-import TestPage from "./TestPate";
+import TestPage from "./TestPage";
 
 export default TestPage;
