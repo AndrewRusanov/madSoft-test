@@ -26,6 +26,7 @@ const TestPage: FC = () => {
 
   const handleTimeUp = () => {
     alert("Время вышло!");
+    //localStorage.clear;
   };
 
   const handleChange = (

@@ -34,3 +34,9 @@
   opacity: 0.8;
   cursor: default;
 }
+
+.finish{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

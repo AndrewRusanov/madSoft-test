@@ -7,6 +7,8 @@ import LongAnswer from "../LongAnswer";
 import { QUESTIONS } from "../../data/Questions";
 
 import styles from "./StepForm.module.css";
+import { useAppDispatch } from "../../store/store";
+import { resetState } from "../../store/slice";
 
 type Props = {
   step: number;
@@ -27,6 +29,8 @@ const StepForm: FC<Props> = ({
   handleNext,
   handleChange,
 }) => {
+  const dispatch = useAppDispatch();
+
   const renderQuestions = () => {
     switch (question.type) {
       case QuestionTypes.SINGLE_SELECT:
@@ -66,6 +70,16 @@ const StepForm: FC<Props> = ({
         );
     }
   };
+
+  const isFinal = step === QUESTIONS.length - 1;
+
+  const handleFinish = () => {
+    alert("Поздравляем!");
+    localStorage.removeItem("answers");
+    localStorage.removeItem("progress");
+    dispatch(resetState());
+  };
+
   return (
     <section className={styles.container}>
       {renderQuestions()}
@@ -87,6 +101,17 @@ const StepForm: FC<Props> = ({
           Вперёд
         </button>
       </div>
+      {isFinal && (
+        <div className={styles.finish}>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={handleFinish}
+          >
+            Завершить тест
+          </button>
+        </div>
+      )}
     </section>
   );
 };

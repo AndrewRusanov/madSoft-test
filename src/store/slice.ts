@@ -23,9 +23,10 @@ const testSlice = createSlice({
     ) => {
       state.answers[action.payload.questionId] = action.payload.answer;
     },
+    resetState: () => initialState,
   },
 });
 
-export const { setAnswer, setProgress } = testSlice.actions;
+export const { setAnswer, setProgress, resetState } = testSlice.actions;
 
 export default testSlice.reducer;
